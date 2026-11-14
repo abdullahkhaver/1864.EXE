@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>1864.EXE 2026 – High-school hackathon at GC Lahore</title>
+  <meta name="description" content="A one-day tech challenge for high-school teams: web development, prompt engineering, UI/UX design and tech pitch. Saturday 21 November 2026 at the Youth Development Centre, GC Lahore." />
+  <meta name="theme-color" content="#17352A" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="1864.EXE 2026 – High-school hackathon at GC Lahore" />
+  <meta property="og:description" content="Four competitions, 24 teams, one Saturday. 21 November 2026 at YDC, GC Lahore." />
+  <meta property="og:url" content="https://itsocietygcu.com/hackathon" />
+  <meta property="og:site_name" content="1864.EXE 2026" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352A'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='800' fill='%23F4D35E' text-anchor='middle'%3E64%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,100,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+<style>
+
+  /* 1864.EXE 2026
+   Chalkboard green, chalk and highlighter yellow. One typeface (Archivo),
+   with its width axis doing the heavy lifting: condensed for headlines,
+   normal width for reading. Mobile-first; breakpoints at 640, 900, 1120. */
+
+:root {
+  --board: #17352A;      /* chalkboard green */
+  --board-2: #204638;
+  --chalk: #EEF1E9;      /* text on the board */
+  --chalk-dim: #B9C6BD;
+  --paper: #F7F8F4;      /* page */
+  --tint: #ECEFE7;       /* alternate sections */
+  --ink: #1C2421;
+  --ink-2: #4F5C56;
+  --line: #D3D9D0;
+  --yellow: #F4D35E;     /* highlighter */
+  --yellow-deep: #E9C13A;
+
+  --font: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --gutter: 20px;
+  --max: 1160px;
+  --radius: 10px;
+  --header-h: 64px;
+}
+
+@media (min-width: 640px) { :root { --gutter: 32px; } }
+@media (min-width: 1120px) { :root { --gutter: 48px; --header-h: 72px; } }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-variation-settings: 'wdth' 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg, iframe { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+strong { font-weight: 650; }
+
+:focus-visible {
+  outline: 3px solid var(--yellow-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute; left: 12px; top: -60px;
+  background: var(--yellow); color: var(--ink);
+  padding: 10px 14px; border-radius: 6px; z-index: 300;
+  font-weight: 600; text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Type ---------- */
+.h2 {
+  font-size: clamp(2rem, 6.4vw, 3.5rem);
+  line-height: 1;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 72;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 750;
+  font-variation-settings: 'wdth' 85;
+}
+.sub {
+  margin-top: 12px;
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  max-width: 58ch;
+}
+.lead {
+  font-size: clamp(1.125rem, 2.2vw, 1.3rem);
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.fine { font-size: .875rem; color: var(--ink-2); margin-top: 14px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 650;
+  font-size: .975rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn-lg { min-height: 52px; padding: 12px 24px; font-size: 1.0625rem; }
+.btn-yellow { background: var(--yellow); color: var(--ink); }
+.btn-yellow:hover { background: var(--yellow-deep); }
+.btn-line { border-color: rgba(238, 241, 233, .45); color: var(--chalk); }
+.btn-line:hover { border-color: var(--chalk); }
+.btn-line-dark { border-color: var(--ink); color: var(--ink); }
+.btn-line-dark:hover { background: var(--ink); color: var(--paper); }
+.btn-ink { background: var(--ink); color: var(--paper); }
+.btn-ink:hover { background: var(--board); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--board);
+  color: var(--chalk);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.site-header.is-scrolled {
+  border-bottom-color: rgba(238, 241, 233, .12);
+  box-shadow: 0 6px 20px rgba(10, 30, 22, .18);
+}
+.header-row {
+  display: flex; align-items: center; gap: 16px;
+  min-height: var(--header-h);
+}
+.logo {
+  font-weight: 850;
+  font-size: 1.375rem;
+  font-variation-settings: 'wdth' 70;
+  letter-spacing: .005em;
+  text-decoration: none;
+  margin-right: auto;
+}
+.logo span { color: var(--yellow); }
+
+.main-nav { display: none; }
+.header-cta { display: none; }
+
+.menu-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 0 14px;
+  background: transparent;
+  border: 2px solid rgba(238, 241, 233, .3);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.menu-btn-lines {
+  position: relative; width: 16px; height: 2px; background: currentColor;
+  transition: background-color .2s ease;
+}
+.menu-btn-lines::before, .menu-btn-lines::after {
+  content: ''; position: absolute; left: 0; width: 16px; height: 2px; background: currentColor;
+  transition: transform .25s ease;
+}
+.menu-btn-lines::before { transform: translateY(-5px); }
+.menu-btn-lines::after { transform: translateY(5px); }
+.menu-open .menu-btn-lines { background: transparent; }
+.menu-open .menu-btn-lines::before { transform: rotate(45deg); }
+.menu-open .menu-btn-lines::after { transform: rotate(-45deg); }
+
+/* Mobile menu: drops down under the header */
+@media (max-width: 899px) {
+  .main-nav {
+    position: absolute; left: 0; right: 0; top: 100%;
+    display: grid;
+    background: var(--board);
+    border-top: 1px solid rgba(238, 241, 233, .12);
+    padding: 8px var(--gutter) 20px;
+    box-shadow: 0 16px 30px rgba(10, 30, 22, .25);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  .menu-open .main-nav { visibility: visible; opacity: 1; transform: none; }
+  .main-nav a {
+    padding: 14px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-variation-settings: 'wdth' 85;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(238, 241, 233, .1);
+  }
+  .main-nav a:last-child { border-bottom: 0; }
+}
+
+@media (min-width: 900px) {
+  .menu-btn { display: none; }
+  .header-cta { display: inline-flex; }
+  .main-nav {
+    display: flex; gap: 4px;
+  }
+  .main-nav a {
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: .95rem;
+    font-weight: 550;
+    text-decoration: none;
+    color: var(--chalk-dim);
+    transition: color .2s ease, background-color .2s ease;
+  }
+  .main-nav a:hover { color: var(--chalk); background: rgba(238, 241, 233, .08); }
+  .main-nav a.is-current { color: var(--chalk); }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--board);
+  color: var(--chalk);
+  padding: 40px 0 56px;
+  overflow: hidden;
+}
+.hero-grid { display: grid; gap: 40px; align-items: end; }
+.hero-host { color: var(--chalk-dim); font-size: .95rem; margin-bottom: 18px; }
+.hero-title {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 62;
+  font-size: clamp(5rem, 27vw, 13rem);
+  line-height: .82;
+  letter-spacing: -.01em;
+  color: var(--chalk);
+}
+.hero-ext { color: var(--yellow); }
+.hero-year {
+  display: block;
+  font-weight: 300;
+  font-variation-settings: 'wdth' 62;
+  color: var(--chalk-dim);
+  letter-spacing: .02em;
+}
+.hero-intro {
+  margin-top: 28px;
+  font-size: clamp(1.125rem, 2.4vw, 1.375rem);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+.hero-actions { display: grid; gap: 12px; margin-top: 28px; }
+
+/* Entry pass */
+.pass {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(5, 20, 14, .35);
+  position: relative;
+}
+.pass-main { padding: 22px 22px 18px; }
+.pass-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 6px;
+}
+.pass-kind {
+  font-weight: 850;
+  font-size: 1.5rem;
+  font-variation-settings: 'wdth' 70;
+}
+.pass-code { font-size: .8rem; color: var(--ink-2); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.pass-rows > div { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.pass-rows > div:last-child { border-bottom: 0; }
+.pass-rows dt { font-size: .8125rem; color: var(--ink-2); }
+.pass-rows dd { font-weight: 650; font-size: 1.0625rem; line-height: 1.35; }
+.pass-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Perforated stub */
+.pass-stub {
+  position: relative;
+  padding: 18px 22px 22px;
+  border-top: 2px dashed var(--line);
+  background: var(--yellow);
+  border-radius: 0 0 16px 16px;
+  font-size: .95rem;
+  line-height: 1.45;
+}
+.pass-stub::before, .pass-stub::after {
+  content: '';
+  position: absolute; top: -12px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--board);
+}
+.pass-stub::before { left: -11px; }
+.pass-stub::after { right: -11px; }
+
+@media (min-width: 640px) {
+  .hero { padding: 56px 0 80px; }
+  .hero-actions { display: flex; flex-wrap: wrap; }
+  .pass { max-width: 440px; }
+}
+@media (min-width: 1000px) {
+  .hero { padding: 64px 0 96px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 400px; gap: 56px; }
+  .hero-title { font-size: clamp(9rem, 15vw, 14rem); }
+  .pass { transform: rotate(1.5deg); }
+}
+
+/* ---------- Blocks ---------- */
+.block { padding: 64px 0; }
+.block-tint { background: var(--tint); }
+.block-head { margin-bottom: 32px; }
+@media (min-width: 900px) {
+  .block { padding: 96px 0; }
+  .block-head { margin-bottom: 48px; }
+}
+
+/* About */
+.about-grid { display: grid; gap: 24px; }
+.about-text { display: grid; gap: 16px; color: var(--ink-2); }
+.about-text .lead { color: var(--ink); }
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+}
+
+/* Competitions */
+.comps { display: grid; gap: 16px; }
+.comp {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  display: flex; flex-direction: column;
+}
+.comp-icon { width: 40px; height: 40px; color: var(--board); margin-bottom: 18px; }
+.comp h3 {
+  font-size: clamp(1.75rem, 4.6vw, 2.25rem);
+  line-height: 1;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 72;
+}
+.comp-desc { margin-top: 10px; font-size: 1.0625rem; max-width: 46ch; }
+.comp-cols {
+  display: grid; gap: 20px;
+  margin-top: 22px; padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.comp h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+.comp li {
+  position: relative; padding-left: 16px;
+  font-size: .95rem; color: var(--ink-2);
+  margin-bottom: 6px;
+}
+.comp li::before {
+  content: ''; position: absolute; left: 0; top: .62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--yellow-deep);
+}
+.comp-note {
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: .9rem;
+  color: var(--ink);
+}
+.comp-note::before { content: ''; display: block; height: 1px; background: var(--line); margin-bottom: 14px; }
+@media (min-width: 640px) {
+  .comp { padding: 28px; }
+  .comp-cols { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .comps { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+
+.themes {
+  margin-top: 48px;
+  display: grid; gap: 12px;
+}
+.themes > p { color: var(--ink-2); max-width: 60ch; }
+.theme-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.theme-list li {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: .95rem;
+  font-weight: 550;
+}
+
+/* ---------- Countdown ---------- */
+.clock { background: var(--board); color: var(--chalk); padding: 48px 0; }
+.clock-row { display: grid; gap: 28px; align-items: center; }
+.clock-title {
+  font-size: clamp(1.625rem, 4.6vw, 2.5rem);
+  line-height: 1.05;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 72;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.clock-digits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.clock-digits > div {
+  background: var(--board-2);
+  border-radius: var(--radius);
+  padding: 14px 6px 12px;
+  text-align: center;
+}
+.clock-digits span {
+  display: block;
+  font-size: clamp(2.25rem, 11vw, 4.5rem);
+  line-height: 1;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 62;
+  font-variant-numeric: tabular-nums;
+  color: var(--yellow);
+}
+.clock-digits small { display: block; margin-top: 6px; font-size: .8125rem; color: var(--chalk-dim); }
+.clock-state { font-size: 1.25rem; font-weight: 650; max-width: 36ch; }
+@media (min-width: 900px) {
+  .clock { padding: 64px 0; }
+  .clock-row { grid-template-columns: 1fr auto; gap: 48px; }
+  .clock-digits { gap: 12px; }
+  .clock-digits > div { min-width: 120px; padding: 18px 12px 14px; }
+}
+
+/* ---------- Schedule ---------- */
+.timeline { position: relative; display: grid; }
+.timeline li {
+  display: grid; gap: 4px;
+  padding: 18px 0 18px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.timeline li:last-child { border-bottom: 0; }
+.timeline li::before {
+  content: ''; position: absolute; left: 4px; top: 24px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--board);
+}
+.timeline::before {
+  content: ''; position: absolute; left: 9px; top: 30px; bottom: 30px;
+  width: 1px; background: var(--line);
+}
+.timeline time { font-size: .95rem; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.25rem; font-weight: 750; font-variation-settings: 'wdth' 85; }
+.timeline p { color: var(--ink-2); max-width: 60ch; }
+.timeline li.is-now { background: linear-gradient(90deg, rgba(244, 211, 94, .35), transparent 80%); border-radius: 8px; }
+.timeline li.is-now::before { background: var(--yellow); border-color: var(--ink); }
+.timeline li.is-now time::after { content: '  Happening now'; color: var(--ink); font-weight: 700; }
+@media (min-width: 720px) {
+  .timeline li { grid-template-columns: 200px 1fr; gap: 24px; padding-top: 22px; padding-bottom: 22px; }
+  .timeline time { padding-top: 2px; }
+  .timeline li::before { top: 28px; }
+}
+
+/* ---------- Rules ---------- */
+.rules { display: grid; gap: 16px; }
+.rule-group {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+}
+.rule-group .h3 { margin-bottom: 12px; }
+.rule-group li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: .975rem;
+}
+.rule-group li strong { color: var(--ink); }
+@media (min-width: 900px) {
+  .rules { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rule-group { padding: 28px; }
+}
+
+/* ---------- Judging tabs ---------- */
+.tab-list {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  margin-bottom: 24px;
+}
+.tab-list [role="tab"] {
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: transparent;
+  font-weight: 650;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.tab-list [role="tab"]:hover { border-color: var(--ink-2); }
+.tab-list [role="tab"][aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.panel-title { display: none; }
+.no-js .panel-title { display: block; margin: 24px 0 8px; font-size: 1.25rem; font-weight: 750; }
+.scores li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.scores li > span { font-size: 1.0625rem; }
+.scores b {
+  font-weight: 800;
+  font-size: 1.25rem;
+  font-variation-settings: 'wdth' 70;
+  font-variant-numeric: tabular-nums;
+  min-width: 3.2ch; text-align: right;
+}
+.scores li::after {
+  content: '';
+  grid-column: 1 / -1;
+  height: 6px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--board) calc(var(--w) * 1% * 2.5), var(--tint) 0);
+}
+@media (min-width: 640px) {
+  .tab-list { display: flex; flex-wrap: wrap; }
+  .scores li { grid-template-columns: 1fr 200px 56px; }
+  .scores li::after { grid-column: 2; grid-row: 1; }
+  .scores b { grid-column: 3; grid-row: 1; }
+}
+
+/* ---------- Prizes ---------- */
+.prizes-grid { display: grid; gap: 28px; }
+.prize-table-wrap { overflow-x: auto; }
+.prize-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 1rem;
+}
+.prize-table th, .prize-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+.prize-table thead th { font-size: .875rem; color: var(--ink-2); font-weight: 600; background: var(--paper); }
+.prize-table tbody th { font-weight: 650; }
+.prize-table td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.prize-table td:nth-child(2) { font-weight: 750; }
+.prize-table tbody tr:last-child > * { border-bottom: 0; }
+@media (max-width: 479px) {
+  .prize-table th, .prize-table td { padding: 12px 10px; font-size: .9rem; }
+}
+@media (min-width: 900px) {
+  .prizes-grid { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+}
+
+/* ---------- Register ---------- */
+.register { background: var(--yellow); }
+.register .lead { margin-top: 12px; }
+.steps { counter-reset: step; display: grid; gap: 14px; margin: 32px 0; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 20px 20px 20px 72px;
+  background: rgba(255, 255, 255, .55);
+  border-radius: var(--radius);
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 20px; top: 18px;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ink); color: var(--yellow);
+  font-weight: 800;
+}
+.steps h3 { font-size: 1.25rem; font-weight: 750; font-variation-settings: 'wdth' 85; }
+.steps p { margin-top: 4px; max-width: 48ch; }
+.register-actions { display: grid; gap: 12px; }
+.register .btn-yellow { background: var(--ink); color: var(--yellow); }
+.register .btn-yellow:hover { background: var(--board); }
+@media (min-width: 640px) {
+  .register-actions { display: flex; flex-wrap: wrap; }
+}
+@media (min-width: 1000px) {
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Venue ---------- */
+.venue-grid { display: grid; gap: 28px; }
+.venue-info { display: grid; gap: 14px; justify-items: start; }
+.venue-info > p:not(.lead) { color: var(--ink-2); }
+.venue-info .btn { margin-top: 8px; }
+.venue-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--tint);
+  aspect-ratio: 4 / 3;
+}
+.venue-map iframe { width: 100%; height: 100%; border: 0; }
+@media (min-width: 900px) {
+  .venue-grid { grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+  .venue-map { aspect-ratio: 16 / 10; }
+}
+
+/* ---------- FAQ ---------- */
+.faq-grid { display: grid; gap: 28px; }
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 0;
+  min-height: 44px;
+  font-weight: 650;
+  font-size: 1.125rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '';
+  flex: none;
+  width: 12px; height: 12px;
+  border-right: 2.5px solid var(--board);
+  border-bottom: 2.5px solid var(--board);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.faq details p { padding: 0 0 20px; color: var(--ink-2); max-width: 62ch; }
+@media (min-width: 900px) {
+  .faq-grid { grid-template-columns: 4fr 8fr; gap: 64px; align-items: start; }
+}
+
+/* ---------- Contact ---------- */
+.contacts { display: grid; gap: 16px; margin-top: 32px; }
+.person {
+  padding: 22px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  display: grid; gap: 6px; align-content: start;
+}
+.person h3 { font-size: 1.375rem; font-weight: 800; font-variation-settings: 'wdth' 75; }
+.person p { color: var(--ink-2); }
+.person a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration-color: var(--yellow-deep);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.person a:hover { text-decoration-color: var(--ink); }
+@media (min-width: 720px) { .contacts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .contacts { grid-template-columns: 1fr 1fr 1.2fr; } }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--board); color: var(--chalk-dim); padding: 40px 0; font-size: .95rem; }
+.footer-row { display: grid; gap: 10px; }
+.footer-logo {
+  color: var(--chalk);
+  font-weight: 850;
+  font-size: 1.75rem;
+  font-variation-settings: 'wdth' 70;
+}
+.footer-logo span { color: var(--yellow); }
+@media (min-width: 900px) {
+  .footer-row { grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 20px; z-index: 200;
+  transform: translate(-50%, 150%);
+  width: max-content; max-width: calc(100% - 32px);
+  background: var(--ink); color: var(--paper);
+  padding: 14px 18px; border-radius: 12px;
+  font-weight: 550;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+  visibility: hidden;
+  transition: transform .3s ease, visibility .3s;
+}
+.toast.is-visible { transform: translate(-50%, 0); visibility: visible; }
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .pass { transform: none !important; }
+}
+
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="wrap header-row">
+      <a href="#top" class="logo" aria-label="1864.EXE 2026, back to top">
+        1864<span>.EXE</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main">
+        <a href="#modules">Competitions</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#rules">Rules</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#register" class="btn btn-yellow header-cta" data-register>Register</a>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+        <span class="menu-btn-lines" aria-hidden="true"></span>
+        <span class="menu-btn-text">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="hero-host">IT Society, Government College Lahore</p>
+          <h1 class="hero-title" id="heroTitle">
+            1864<span class="hero-ext">.EXE</span>
+            <span class="hero-year">2026</span>
+          </h1>
+          <p class="hero-intro">
+            A one-day tech challenge for high-school teams. Build a website,
+            out-prompt an AI, design an app or pitch a startup, at the college
+            that opened its doors in 1864.
+          </p>
+          <div class="hero-actions">
+            <a href="#register" class="btn btn-yellow btn-lg" data-register>Register your team</a>
+            <a href="#modules" class="btn btn-line btn-lg">See the four competitions</a>
+          </div>
+        </div>
+
+        <!-- Entry pass -->
+        <aside class="pass" aria-label="Event details">
+          <div class="pass-main">
+            <div class="pass-top">
+              <span class="pass-kind">Entry pass</span>
+              <span class="pass-code" aria-hidden="true">GCU-1864</span>
+            </div>
+            <dl class="pass-rows">
+              <div>
+                <dt>Date</dt>
+                <dd>Saturday, 21 November 2026</dd>
+              </div>
+              <div>
+                <dt>Venue</dt>
+                <dd>Youth Development Centre, GC Lahore</dd>
+              </div>
+              <div class="pass-pair">
+                <div>
+                  <dt>Team</dt>
+                  <dd>2 to 4 students</dd>
+                </div>
+                <div>
+                  <dt>Fee</dt>
+                  <dd>PKR 1,200 per team</dd>
+                </div>
+              </div>
+            </dl>
+          </div>
+          <div class="pass-stub">
+            <p><strong>24 places in total</strong>, 6 per competition. Places are confirmed once your fee and eligibility are checked.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="block" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap about-grid">
+        <h2 class="h2" id="aboutTitle">Real problems, real deadlines, one Saturday.</h2>
+        <div class="about-text">
+          <p class="lead">
+            1864.EXE brings high-school students from different schools and
+            colleges to GC for a day of building. Teams pick one of four
+            competitions, get their challenge in the morning and show what they
+            made to the judges in the afternoon.
+          </p>
+          <p>
+            It's a chance to practise the things school rarely tests: solving an
+            open problem with a team, using AI tools responsibly, and explaining
+            your work to people who will ask hard questions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitions -->
+    <section class="block block-tint" id="modules" aria-labelledby="modulesTitle">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 class="h2" id="modulesTitle">Pick one of four competitions</h2>
+          <p class="sub">Each student can enter only one, and each competition takes at most six teams.</p>
+        </div>
+
+        <div class="comps">
+          <article class="comp">
+            <svg class="comp-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M18 16l-8 8 8 8M30 16l8 8-8 8M27 12l-6 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Web development</h3>
+            <p class="comp-desc">Build a working website or web app for a challenge revealed on the day.</p>
+            <div class="comp-cols">
+              <div>
+                <h4>You'll hand in</h4>
+                <ul>
+                  <li>A working demo, local or live</li>
+                  <li>Your source files or repository</li>
+                  <li>A 2–3 minute explanation</li>
+                </ul>
+              </div>
+              <div>
+                <h4>You can use</h4>
+                <ul>
+                  <li>HTML, CSS and JavaScript</li>
+                  <li>Frameworks and libraries</li>
+                  <li>Public APIs and documentation</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="comp">
+            <svg class="comp-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="7" y="10" width="34" height="28" rx="4" stroke="currentColor" stroke-width="2.4"/><path d="M15 20l5 4-5 4M24 28h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Prompt engineering</h3>
+            <p class="comp-desc">Get the best possible results from an AI model with clear, structured prompts.</p>
+            <div class="comp-cols">
+              <div>
+                <h4>Tasks may include</h4>
+                <ul>
+                  <li>Pulling structured data out of text</li>
+                  <li>Summarising and classifying</li>
+                  <li>Rewriting content to a format</li>
+                  <li>Creative and multi-step instructions</li>
+                </ul>
+              </div>
+              <div>
+                <h4>You'll hand in</h4>
+                <ul>
+                  <li>Your final prompts and outputs</li>
+                  <li>A short rationale</li>
+                  <li>Earlier versions, when asked</li>
+                </ul>
+              </div>
+            </div>
+            <p class="comp-note">Every team uses the same organiser-approved AI models.</p>
+          </article>
+
+          <article class="comp">
+            <svg class="comp-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="9" width="24" height="24" rx="3" stroke="currentColor" stroke-width="2.4"/><rect x="18" y="17" width="24" height="22" rx="3" stroke="currentColor" stroke-width="2.4" fill="var(--paper)"/></svg>
+            <h3>UI/UX design</h3>
+            <p class="comp-desc">Turn a real user problem into an app or website design people find easy to use.</p>
+            <div class="comp-cols">
+              <div>
+                <h4>Expected work</h4>
+                <ul>
+                  <li>User flows and wireframes</li>
+                  <li>High-fidelity screens</li>
+                  <li>A clickable prototype, if you can</li>
+                </ul>
+              </div>
+              <div>
+                <h4>You'll hand in</h4>
+                <ul>
+                  <li>Your Figma (or similar) file</li>
+                  <li>A 3-minute walkthrough</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="comp">
+            <svg class="comp-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M9 40V29M19 40V22M29 40V26M39 40V12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M7 15l11-5 9 5 12-8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Tech pitch</h3>
+            <p class="comp-desc">Pitch your own tech product, startup or service to a panel of judges.</p>
+            <div class="comp-cols">
+              <div>
+                <h4>Cover these points</h4>
+                <ul>
+                  <li>The problem and who has it</li>
+                  <li>Your solution and its market</li>
+                  <li>How it makes money or sustains itself</li>
+                  <li>Whether it can be built, and first steps</li>
+                </ul>
+              </div>
+              <div>
+                <h4>On stage</h4>
+                <ul>
+                  <li>5-minute pitch</li>
+                  <li>3 minutes of judges' questions</li>
+                  <li>A prototype helps, but isn't required</li>
+                </ul>
+              </div>
+            </div>
+            <p class="comp-note">You can prepare your pitch before the day. It must be your own idea.</p>
+          </article>
+        </div>
+
+        <div class="themes">
+          <h3 class="h3">Challenge themes</h3>
+          <p>Briefs for web, prompt and design teams are revealed on the morning of the event. They'll come from one of these areas:</p>
+          <ul class="theme-list">
+            <li>Education and learning</li>
+            <li>Accessibility and inclusion</li>
+            <li>Campus and community life</li>
+            <li>Health, safety and well-being</li>
+            <li>Sustainability and the environment</li>
+            <li>Productivity, public service and social impact</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="clock" id="countdown" aria-labelledby="clockTitle">
+      <div class="wrap clock-row">
+        <h2 class="clock-title" id="clockTitle">Saturday 21&nbsp;November 2026</h2>
+
+        <div class="clock-body" data-target="2026-11-21T08:30:00+05:00" data-end="2026-11-21T16:30:00+05:00" data-clock>
+          <div class="clock-digits" data-cd-active role="timer" aria-live="off">
+            <div><span data-days>–</span><small>days</small></div>
+            <div><span data-hours>–</span><small>hours</small></div>
+            <div><span data-minutes>–</span><small>minutes</small></div>
+            <div><span data-seconds>–</span><small>seconds</small></div>
+          </div>
+          <p class="clock-state" data-cd-live hidden>It's happening now at the Youth Development Centre.</p>
+          <p class="clock-state" data-cd-past hidden>That's a wrap for 1864.EXE 2026. Thank you to every team, mentor and judge.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="block" id="schedule" aria-labelledby="scheduleTitle">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 class="h2" id="scheduleTitle">How the day runs</h2>
+          <p class="sub">Times are approximate and may shift a little on the day.</p>
+        </div>
+
+        <ol class="timeline" data-schedule>
+          <li data-start="08:30" data-end="09:15">
+            <div><h3>Check-in</h3><p>Fee check, seating and laptop setup.</p></div>
+          </li>
+          <li data-start="09:15" data-end="09:30">
+            <div><h3>Opening briefing</h3><p>Rules and how judging works.</p></div>
+          </li>
+          <li data-start="09:30" data-end="09:45">
+            <div><h3>Challenges released</h3><p>Each competition gets its brief.</p></div>
+          </li>
+          <li data-start="09:45" data-end="13:15">
+            <div><h3>Build time</h3><p>Web, prompt and design teams work on their briefs. Pitch teams check in and get ready.</p></div>
+          </li>
+          <li data-start="13:15" data-end="13:45">
+            <div><h3>Submissions close</h3><p>Short break while judging is set up.</p></div>
+          </li>
+          <li data-start="13:45" data-end="15:30">
+            <div><h3>Demos and pitches</h3><p>Project demos, design walkthroughs, prompt reviews and tech pitches.</p></div>
+          </li>
+          <li data-start="15:30" data-end="16:00">
+            <div><h3>Judging</h3><p>Judges compare notes and finalise scores.</p></div>
+          </li>
+          <li data-start="16:00" data-end="16:30">
+            <div><h3>Awards and closing</h3><p>Results, certificates and prizes.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Rules -->
+    <section class="block block-tint" id="rules" aria-labelledby="rulesTitle">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 class="h2" id="rulesTitle">Rules</h2>
+          <p class="sub">Short version: be a high-school student, do your own work, and be decent to everyone.</p>
+        </div>
+
+        <div class="rules">
+          <section class="rule-group" aria-labelledby="r1">
+            <h3 class="h3" id="r1">Who can enter</h3>
+            <ul>
+              <li><strong>High-school students only.</strong> Grades 9–12, Matric, Intermediate, O and A Level, HSSC or equivalent. University students can't take part.</li>
+              <li><strong>Teams of 2 to 4.</strong> Each student joins one team and one competition.</li>
+              <li><strong>Register before the deadline</strong> with accurate details. Your place is confirmed after we check your eligibility and fee.</li>
+              <li><strong>Bring your school or college ID,</strong> or other proof that you're currently enrolled.</li>
+            </ul>
+          </section>
+
+          <section class="rule-group" aria-labelledby="r2">
+            <h3 class="h3" id="r2">Your work</h3>
+            <ul>
+              <li><strong>Web, prompt and design work starts after the brief is released.</strong> Pitch teams may prepare beforehand.</li>
+              <li><strong>Internet, documentation, open-source libraries and public APIs are allowed</strong> unless your competition's instructions say otherwise.</li>
+              <li><strong>AI assistants are allowed for web and design teams</strong> if you say you used them. You must be able to explain everything you submit. Prompt teams use only the organisers' models.</li>
+              <li><strong>Copied projects, plagiarism or claiming others' work</strong> can get your team disqualified.</li>
+              <li><strong>Teachers and mentors can't do the work for you</strong> during competition hours.</li>
+            </ul>
+          </section>
+
+          <section class="rule-group" aria-labelledby="r3">
+            <h3 class="h3" id="r3">On the day</h3>
+            <ul>
+              <li><strong>Bring your own laptops and chargers.</strong></li>
+              <li><strong>No harassment, cheating, sabotage, impersonation or taking other teams' files.</strong></li>
+              <li><strong>No hacking of any kind.</strong> Scanning, testing or attacking GC systems, public services, other teams or anyone's device is strictly forbidden.</li>
+              <li><strong>Follow GC rules</strong> and instructions from venue and security staff.</li>
+            </ul>
+          </section>
+
+          <section class="rule-group" aria-labelledby="r4">
+            <h3 class="h3" id="r4">Judging and results</h3>
+            <ul>
+              <li><strong>Submit before the deadline.</strong> Late work may lose marks or be refused, unless the organisers confirm a technical problem.</li>
+              <li><strong>Judges may ask</strong> for a live demo, your source or design files, prompt history, the tools you used and why you made your choices.</li>
+              <li><strong>Judges' scores and the committee's decisions are final</strong> after internal checks.</li>
+              <li><strong>Your work stays yours.</strong> GC and the IT Society may show project titles, screenshots and event photos for publicity.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Judging -->
+    <section class="block" id="judging" aria-labelledby="judgingTitle">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 class="h2" id="judgingTitle">How you'll be scored</h2>
+          <p class="sub">Each competition has its own marking scheme. Choose one to see it.</p>
+        </div>
+
+        <div class="tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Competition">
+            <button role="tab" type="button" id="t-web" aria-controls="p-web" aria-selected="true">Web development</button>
+            <button role="tab" type="button" id="t-prompt" aria-controls="p-prompt" aria-selected="false" tabindex="-1">Prompt engineering</button>
+            <button role="tab" type="button" id="t-ux" aria-controls="p-ux" aria-selected="false" tabindex="-1">UI/UX design</button>
+            <button role="tab" type="button" id="t-pitch" aria-controls="p-pitch" aria-selected="false" tabindex="-1">Tech pitch</button>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="p-web" aria-labelledby="t-web" tabindex="0">
+            <h3 class="panel-title">Web development</h3>
+            <ul class="scores">
+              <li style="--w:30"><span>Does it work, and how well is it built?</span><b>30%</b></li>
+              <li style="--w:20"><span>Usefulness for the problem</span><b>20%</b></li>
+              <li style="--w:15"><span>Ease of use</span><b>15%</b></li>
+              <li style="--w:15"><span>Technical quality and your understanding of it</span><b>15%</b></li>
+              <li style="--w:10"><span>Originality and thoughtful use of tools</span><b>10%</b></li>
+              <li style="--w:10"><span>Demo and explanation</span><b>10%</b></li>
+            </ul>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="p-prompt" aria-labelledby="t-prompt" tabindex="0">
+            <h3 class="panel-title">Prompt engineering</h3>
+            <ul class="scores">
+              <li style="--w:35"><span>Task success and quality of output</span><b>35%</b></li>
+              <li style="--w:20"><span>Clear, well-structured prompts</span><b>20%</b></li>
+              <li style="--w:15"><span>Works across different cases and limits</span><b>15%</b></li>
+              <li style="--w:10"><span>Efficient, controlled iteration</span><b>10%</b></li>
+              <li style="--w:10"><span>Creativity and strategy</span><b>10%</b></li>
+              <li style="--w:10"><span>Explanation and responsible use</span><b>10%</b></li>
+            </ul>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="p-ux" aria-labelledby="t-ux" tabindex="0">
+            <h3 class="panel-title">UI/UX design</h3>
+            <ul class="scores">
+              <li style="--w:25"><span>User flow and usability</span><b>25%</b></li>
+              <li style="--w:20"><span>Understanding of the user and problem</span><b>20%</b></li>
+              <li style="--w:20"><span>Visual hierarchy and consistency</span><b>20%</b></li>
+              <li style="--w:15"><span>Accessibility and inclusiveness</span><b>15%</b></li>
+              <li style="--w:10"><span>How complete the prototype is</span><b>10%</b></li>
+              <li style="--w:10"><span>Design reasoning and presentation</span><b>10%</b></li>
+            </ul>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="p-pitch" aria-labelledby="t-pitch" tabindex="0">
+            <h3 class="panel-title">Tech pitch</h3>
+            <ul class="scores">
+              <li style="--w:20"><span>Business model and sustainability</span><b>20%</b></li>
+              <li style="--w:15"><span>The problem and why it matters</span><b>15%</b></li>
+              <li style="--w:15"><span>Innovation and value</span><b>15%</b></li>
+              <li style="--w:15"><span>Understanding of the market and alternatives</span><b>15%</b></li>
+              <li style="--w:15"><span>Technical feasibility</span><b>15%</b></li>
+              <li style="--w:10"><span>Pitch and communication</span><b>10%</b></li>
+              <li style="--w:10"><span>Answers to the judges' questions</span><b>10%</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prizes -->
+    <section class="block block-tint" id="prizes" aria-labelledby="prizesTitle">
+      <div class="wrap">
+        <div class="block-head">
+          <h2 class="h2" id="prizesTitle">Prizes</h2>
+          <p class="sub">A winner and a runner-up in every competition. All of them get a shield and a certificate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section class="block register" id="register" aria-labelledby="registerTitle">
+      <div class="wrap register-grid">
+        <div>
+          <h2 class="h2" id="registerTitle">Register your team</h2>
+          <p class="lead">Registration is open until all 24 places are taken.</p>
+
+          <ol class="steps">
+            <li>
+              <h3>Fill in the form</h3>
+              <p>Team name, competition, city, school or college, and how many members (2, 3 or 4).</p>
+            </li>
+            <li>
+              <h3>Pay the fee</h3>
+              <p>PKR 1,200 per team. We'll send payment details through the official channels.</p>
+            </li>
+            <li>
+              <h3>Get confirmed</h3>
+              <p>Your place is confirmed once we've checked your payment and eligibility. Sending the form alone doesn't reserve a place.</p>
+            </li>
+          </ol>
+
+          <div class="register-actions">
+            <a href="#register" class="btn btn-yellow btn-lg" data-register>Open the registration form</a>
+            <a href="#contact" class="btn btn-line-dark btn-lg">Ask the organisers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue -->
+    <section class="block" id="venue" aria-labelledby="venueTitle">
+      <div class="wrap venue-grid">
+        <div class="venue-info">
+          <h2 class="h2" id="venueTitle">Getting there</h2>
+          <p class="lead">Youth Development Centre (YDC), Government College, Katchery Road, Lahore.</p>
+          <p>Bring your ID for the gate.</p>
+          <a class="btn btn-ink" href="https://maps.app.goo.gl/pcdnjbui5QjQrwg58" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        </div>
+        <div class="venue-map">
+          <iframe
+            title="Map showing Government College Lahore"
+            src="https://www.google.com/maps?q=Government+College+Lahore&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block block-tint" id="faq" aria-labelledby="faqTitle">
+      <div class="wrap faq-grid">
+        <h2 class="h2" id="faqTitle">Questions</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Who can take part?</summary>
+            <p>Students currently enrolled in Grades 9–12, Matric, Intermediate, O or A Level, or an equivalent qualification. University students can't enter.</p>
+          </details>
+          <details>
+            <summary>How big can a team be?</summary>
+            <p>Two to four students.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>PKR 1,200 per team, not per person.</p>
+          </details>
+          <details>
+            <summary>Can we enter more than one competition?</summary>
+            <p>No. Each student takes part in one competition only.</p>
+          </details>
+          <details>
+            <summary>Do we need our own laptops?</summary>
+            <p>Yes. Bring your laptops, chargers and anything else you'll need.</p>
+          </details>
+          <details>
+            <summary>Can we use AI tools?</summary>
+            <p>Web and design teams can, as long as they say so and can explain their work. Prompt engineering teams all use the same organiser-approved models.</p>
+          </details>
+          <details>
+            <summary>Can we prepare before the day?</summary>
+            <p>Pitch teams can prepare their idea and slides beforehand. Web, prompt and design work has to start after the brief is released on the day.</p>
+          </details>
+          <details>
+            <summary>Does sending the form confirm our place?</summary>
+            <p>No. Your place is confirmed after we check your payment and eligibility.</p>
+          </details>
+          <details>
+            <summary>How will we hear from you?</summary>
+            <p>Through the contact details you give when registering, and the IT Society's official channels.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="block" id="contact" aria-labelledby="contactTitle">
+      <div class="wrap">
+        <h2 class="h2" id="contactTitle">Contact the organisers</h2>
+
+        <div class="contacts">
+          <div class="person">
+            <h3>Shehroz Latif</h3>
+            <p>President, IT Society</p>
+            <a href="tel:+923351250734">+92 335 1250734</a>
+          </div>
+          <div class="person">
+            <h3>Hussain Zaheer</h3>
+            <p>General Secretary, IT Society</p>
+            <a href="tel:+923330608068">+92 333 0608068</a>
+          </div>
+          <div class="person">
+            <h3>Email and social</h3>
+            <p><a href="mailto:itsocietygcul@gmail.com">itsocietygcul@gmail.com</a></p>
+            <p><a href="https://www.instagram.com/itsociety.gcu/" target="_blank" rel="noopener noreferrer">Instagram: @itsociety.gcu</a></p>
+            <p><a href="https://itsocietygcu.com/" target="_blank" rel="noopener noreferrer">itsocietygcu.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <p class="footer-logo">1864<span>.EXE</span> 2026</p>
+      <p>Organised by the IT Society, Government College Lahore, for GC Activity Week 2026.</p>
+      <p>© 2026 IT Society, GC Lahore</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+
+  /* 1864.EXE 2026 – page behaviour
+   Menu, header shadow, current-section link, scoring tabs, the
+   "happening now" row in the schedule, and registration links. */
+(function () {
+  'use strict';
+
+  /* Put the Google Form link here when it's ready, e.g.
+     'https://forms.gle/xxxxxxxxxxxx'. Until then, Register buttons scroll
+     to the registration section and show a short note. */
+  var REGISTRATION_URL = 'https://forms.gle/2uRRPz7z88tMafNv7';
+
+  var doc = document.documentElement;
+  doc.classList.remove('no-js');
+
+  var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+
+  /* ---------- Header ---------- */
+  var header = $('#header');
+  function onScroll() {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---------- Mobile menu ---------- */
+  var menuBtn = $('#menuBtn');
+  var nav = $('#mainNav');
+  function setMenu(open) {
+    if (!header || !menuBtn) return;
+    header.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.querySelector('.menu-btn-text').textContent = open ? 'Close' : 'Menu';
+  }
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function () {
+      setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('menu-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (header.classList.contains('menu-open') && !header.contains(e.target)) setMenu(false);
+    });
+    window.matchMedia('(min-width: 900px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+  }
+
+  /* ---------- Highlight the section you're reading ---------- */
+  if ('IntersectionObserver' in window && nav) {
+    var links = $$('a[href^="#"]', nav);
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('is-current'); a.removeAttribute('aria-current'); });
+        var link = byId[entry.target.id];
+        if (link) { link.classList.add('is-current'); link.setAttribute('aria-current', 'true'); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  /* ---------- Scoring tabs ---------- */
+  $$('[data-tabs]').forEach(function (box) {
+    var tabs = $$('[role="tab"]', box);
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+
+    function select(i, focus) {
+      tabs.forEach(function (t, j) {
+        var on = i === j;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (panels[j]) panels[j].hidden = !on;
+      });
+      if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i, false); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); select((i + 1) % n, true); }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); select((i - 1 + n) % n, true); }
+        if (e.key === 'Home') { e.preventDefault(); select(0, true); }
+        if (e.key === 'End') { e.preventDefault(); select(n - 1, true); }
+      });
+    });
+    select(0, false);
+  });
+
+  /* ---------- "Happening now" in the schedule (event day, Pakistan time) ---------- */
+  var schedule = $('[data-schedule]');
+  function markNow() {
+    if (!schedule) return;
+    var parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Karachi', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(new Date());
+    var get = function (type) { var p = parts.find(function (x) { return x.type === type; }); return p ? p.value : ''; };
+    var isEventDay = get('year') === '2026' && get('month') === '11' && get('day') === '21';
+    var now = get('hour') + ':' + get('minute');
+    $$('li', schedule).forEach(function (li) {
+      var on = isEventDay && now >= li.getAttribute('data-start') && now < li.getAttribute('data-end');
+      li.classList.toggle('is-now', on);
+    });
+  }
+  markNow();
+  setInterval(markNow, 60000);
+
+  /* ---------- Registration links ---------- */
+  var toast = $('#toast');
+  var toastTimer;
+  function showToast(text) {
+    if (!toast) return;
+    toast.textContent = text;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('is-visible'); }, 4000);
+  }
+
+  $$('[data-register]').forEach(function (a) {
+    if (REGISTRATION_URL) {
+      a.href = REGISTRATION_URL;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      return;
+    }
+    a.addEventListener('click', function () {
+      showToast('The registration form opens soon. Contact the organisers to reserve a place.');
+    });
+  });
+})();
+/* 1864.EXE 2026 – countdown
+   Counts down to doors opening, then switches to "happening now" and
+   finally "that's a wrap". Times are read from the HTML so they can be
+   changed without touching this file. */
+(function () {
+  'use strict';
+
+  var root = document.querySelector('[data-clock]');
+  if (!root) return;
+
+  var start = new Date(root.getAttribute('data-target') || '2026-11-21T08:30:00+05:00').getTime();
+  var end = new Date(root.getAttribute('data-end') || '2026-11-21T16:30:00+05:00').getTime();
+
+  var states = {
+    active: root.querySelector('[data-cd-active]'),
+    live: root.querySelector('[data-cd-live]'),
+    past: root.querySelector('[data-cd-past]')
+  };
+  var el = {
+    days: root.querySelector('[data-days]'),
+    hours: root.querySelector('[data-hours]'),
+    minutes: root.querySelector('[data-minutes]'),
+    seconds: root.querySelector('[data-seconds]')
+  };
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function show(name) {
+    Object.keys(states).forEach(function (k) {
+      if (states[k]) states[k].hidden = k !== name;
+    });
+  }
+
+  var timer = null;
+
+  function tick() {
+    var now = Date.now();
+    if (now >= end) { show('past'); stop(); return; }
+    if (now >= start) { show('live'); return; }
+
+    var diff = start - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+
+    if (el.days) el.days.textContent = String(days);
+    if (el.hours) el.hours.textContent = pad(hours);
+    if (el.minutes) el.minutes.textContent = pad(minutes);
+    if (el.seconds) el.seconds.textContent = pad(seconds);
+    show('active');
+  }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  // Line the updates up with the start of each second so digits change cleanly.
+  tick();
+  setTimeout(function () {
+    tick();
+    timer = setInterval(tick, 1000);
+  }, 1000 - (Date.now() % 1000));
+
+  // Catch up straight away when the tab becomes visible again.
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) tick();
+  });
+})();
+
+</script>
+  <script src="js/countdown.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
